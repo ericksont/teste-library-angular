@@ -1,0 +1,34 @@
+.paginacao-custom {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .paginacao-custom-center {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .paginacao-custom-left {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  
+  .paginacao-custom-right {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+  }
+  
+  .detail-paginator {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  

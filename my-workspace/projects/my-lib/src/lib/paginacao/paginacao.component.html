@@ -1,0 +1,23 @@
+<div *ngIf="loading; else paginationBlock">
+    <div class="spinner-border" role="status"></div>
+  </div>
+  <ng-template #paginationBlock>
+    <div class="{{alignPaginatorCss}}">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item {{disabledAnterior}}">
+            <a class="page-link" (click)="previousPage($event)" href="#">Anterior</a>
+          </li>
+          <li class="page-item {{item.active}}" *ngFor="let item of tagHtml">
+            <a class="page-link" (click)="onPage(item.page,$event)" href="#">{{item.page}}</a>
+          </li>
+          <li class="page-item {{disabledProxima}}">
+            <a class="page-link" (click)="nextPage($event)" href="#">Próximo</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </ng-template>
+  
+  
+  
