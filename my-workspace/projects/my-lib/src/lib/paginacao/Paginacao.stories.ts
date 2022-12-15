@@ -23,9 +23,3 @@ TotalPages.args = {
     totalPages: 320,
     rows: 10,
 };
-
-export const Rows = Template.bind({});
-Rows.args = {
-    totalPages: 50,
-    rows: 50,
-};

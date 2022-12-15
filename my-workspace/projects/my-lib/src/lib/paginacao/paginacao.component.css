@@ -1,34 +1,86 @@
-.paginacao-custom {
-    align-items: center;
+ul {
+  margin: 15px 0;
+}
+
+li {
+  margin: 0;
+}
+
+ul :first-child, ol :first-child {
+  margin-top: 0;
+}
+
+.pagination {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .paginacao-custom-center {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .paginacao-custom-left {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-  }
-  
-  .paginacao-custom-right {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-  }
-  
-  .detail-paginator {
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
+    line-height: 1.6;
+    font-family: Marmelad,"Lucida Grande",Arial,"Hiragino Sans GB",Georgia,sans-serif;
+    font-size: 14px;
+    box-sizing: initial;
+}
+
+.pagination .pagination-pages {
+  float: left;
+  margin-left: 0;
+}
+
+.pagination .pagination-pages ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination .pagination-pages li {
+  float: left;
+  border: 1px solid #aaa;
+  border-right: none;
+  list-style: none;
+}
+
+.pagination .pagination-pages li:first-child, .pagination .pagination-pages li:first-child>a {
+  border-radius: 3px 0 0 3px;
+}
+
+.pagination .pagination-pages li>a {
+  min-width: 30px;
+  height: 28px;
+  line-height: 28px;
+  display: block;
+  background: #fff;
+  font-size: 14px;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.pagination .pagination-pages li>a:hover {
+  background: #eee;
+}
+
+.pagination .pagination-pages li.disabled>a {
+  opacity: .3;
+  cursor: default;
+}
+
+.pagination .pagination-pages li.disabled>a:hover {
+  background: 0 0;
+}
+
+.paginations .pagination-pages li.active {
+  border: none;
+}
+
+.pagination .pagination-pages li.active>a {
+  line-height: 30px;
+  background: #aaa;
+  color: #fff;
+  cursor: default;
+}
+
+.pagination .pagination-pages li:last-child {
+  border-right: 1px solid #aaa;
+  border-radius: 0 3px 3px 0;
+}
+
+
+

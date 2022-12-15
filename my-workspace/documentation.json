@@ -133,7 +133,7 @@
         },
         {
             "name": "PaginacaoComponent",
-            "id": "component-PaginacaoComponent-cbd6ba680fae2c26a7eb79dc913a2262ad0caf9a3e9c4a3e7b66616f871ffb62969027d09b3d497f22ce63cdff38f02221fb73815c4d5ee7b418f6295bbe2df8",
+            "id": "component-PaginacaoComponent-0370b019b28b78d9983aefda5aff094fb2654906b547522d756bfe946e65bbcc91f401421649901156fab3e3462286422316befc99e561bd4c5327661ba5e5dc",
             "file": "projects/my-lib/src/lib/paginacao/paginacao.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -155,7 +155,7 @@
                     "defaultValue": "\"center\"",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 },
@@ -163,7 +163,7 @@
                     "name": "rows",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 22,
                     "type": "number | undefined",
                     "decorators": []
                 },
@@ -172,62 +172,68 @@
                     "defaultValue": "0",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "number",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "currentPage",
-                    "defaultValue": "1",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 18,
-                    "type": "number"
-                },
-                {
                     "name": "paginaAtual",
                     "defaultValue": "new EventEmitter<number>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 20,
                     "type": "EventEmitter"
                 }
             ],
             "propertiesClass": [
                 {
                     "name": "alignPaginatorCss",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string | undefined",
+                    "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 11
                 },
                 {
-                    "name": "disabledAnterior",
+                    "name": "currentPage",
+                    "defaultValue": "1",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string | undefined",
+                    "type": "number",
+                    "optional": false,
+                    "description": "",
+                    "line": 19
+                },
+                {
+                    "name": "disabledAnterior",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 13
                 },
                 {
                     "name": "disabledProxima",
+                    "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "string | undefined",
+                    "type": "string",
                     "optional": false,
                     "description": "",
                     "line": 14
                 },
                 {
                     "name": "html",
+                    "defaultValue": "[]",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Array<any> | undefined",
+                    "type": "Array<any>",
                     "optional": false,
                     "description": "",
                     "line": 15
@@ -270,7 +276,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -280,7 +286,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 37,
+                    "line": 38,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -297,7 +303,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 60,
+                    "line": 61,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -325,7 +331,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 28,
+                    "line": 29,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -346,7 +352,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 26,
+                    "line": 27,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
@@ -369,7 +375,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 56,
+                    "line": 57,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -406,7 +412,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 52,
+                    "line": 53,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -440,7 +446,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 64,
+                    "line": 65,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -472,7 +478,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';\n\n@Component({\n  selector: 'unifor-paginacao',\n  templateUrl: 'paginacao.component.html',\n  styleUrls: ['paginacao.component.css']\n})\nexport class PaginacaoComponent implements OnInit {\n\n  tagHtml: Array<object> = [];\n  alignPaginatorCss:string | undefined;\n  offsetPage: number = 2;\n  disabledAnterior: string | undefined;\n  disabledProxima: string | undefined;\n  html:Array<any> | undefined;\n  loading: boolean = false;\n\n  @Output() currentPage: number =1;\n  @Output() paginaAtual  = new EventEmitter<number>();\n  @Input() align:string = \"center\";\n  @Input() rows: number | undefined;            // Quantidade maxima de registros exibido na tabela por pagina\n  @Input() totalPages:number = 0;       // Quantidade total de paginas\n\n  constructor() { }\n\n  ngOnInit() {}\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['totalPages']) {\n      this.gerarTagDinamica();\n      this.alignPaginator();\n    }\n  }\n\n  alignPaginator() { this.alignPaginatorCss = `paginacao-custom-${this.align}`; }\n\n  gerarTagDinamica(): void {\n    let initPage:number = 1;\n    let lastPage:any = this.totalPages;\n\n    //Inicializa  com 5 botoes de paginacão se a quantidade de paginas for maior que 5.\n    if(this.totalPages > 5) lastPage =5;\n\n\n    //this.totalPages = Math.round(this.totalRecords/this.rows);\n    this.disabledAnterior = \"disabled\";\n    for (let i = initPage; i <= lastPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n  }\n\n  previousPage(event: any):void {\n    this.setPage(Math.max(1,this.currentPage -1),event);\n  }\n\n  onPage(paginaAtual: any,event: any):void{\n    this.setPage(paginaAtual,event);\n  }\n\n  nextPage(event: any):void {\n    this.setPage(Math.min(this.totalPages, this.currentPage + 1),event);\n  }\n\n  setPage(currentPage: number,event: { preventDefault: () => void; }){\n    event.preventDefault();\n    this.loading = true;\n    this.currentPage = currentPage;\n    this.paginaAtual.emit(this.currentPage);\n\n    this.disabledAnterior = \"\";\n    this.disabledProxima = \"\";\n\n    const startPage = Math.max(1, this.currentPage - this.offsetPage);\n    const endPage = Math.min(this.totalPages, this.currentPage + this.offsetPage);\n\n    if(this.currentPage == 1) this.disabledAnterior = \"disabled\";\n    if(this.currentPage == this.totalPages) this.disabledProxima = \"disabled\";\n\n    this.tagHtml = [];\n    for (let i = startPage; i <= endPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n    this.loading = false;\n    console.log(this.currentPage);\n  }\n}\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';\n\n@Component({\n  selector: 'unifor-paginacao',\n  templateUrl: 'paginacao.component.html',\n  styleUrls: ['paginacao.component.css']\n})\nexport class PaginacaoComponent implements OnInit {\n\n  tagHtml: Array<object> = [];\n  alignPaginatorCss:string = '';\n  offsetPage: number = 2;\n  disabledAnterior: string = '';\n  disabledProxima: string = '';\n  html:Array<any> = [];\n  loading: boolean = false;\n\n  //@Output() currentPage: number = 1;\n  currentPage: number = 1;\n  @Output() paginaAtual  = new EventEmitter<number>();\n  @Input() align:string = \"center\";\n  @Input() rows: number | undefined;            // Quantidade maxima de registros exibido na tabela por pagina\n  @Input() totalPages:number = 0;       // Quantidade total de paginas\n\n  constructor() { }\n\n  ngOnInit() {}\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['totalPages']) {\n      this.gerarTagDinamica();\n      this.alignPaginator();\n    }\n  }\n\n  alignPaginator() { this.alignPaginatorCss = `paginacao-custom-${this.align}`; }\n\n  gerarTagDinamica(): void {\n    let initPage:number = 1;\n    let lastPage:any = this.totalPages;\n\n    //Inicializa  com 5 botoes de paginacão se a quantidade de paginas for maior que 5.\n    if(this.totalPages > 5) lastPage =5;\n\n\n    //this.totalPages = Math.round(this.totalRecords/this.rows);\n    this.disabledAnterior = \"disabled\";\n    for (let i = initPage; i <= lastPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n  }\n\n  previousPage(event: any):void {\n    this.setPage(Math.max(1,this.currentPage -1),event);\n  }\n\n  onPage(paginaAtual: any,event: any):void{\n    this.setPage(paginaAtual,event);\n  }\n\n  nextPage(event: any):void {\n    this.setPage(Math.min(this.totalPages, this.currentPage + 1),event);\n  }\n\n  setPage(currentPage: number,event: { preventDefault: () => void; }){\n    event.preventDefault();\n    this.loading = true;\n    this.currentPage = currentPage;\n    this.paginaAtual.emit(this.currentPage);\n\n    this.disabledAnterior = \"\";\n    this.disabledProxima = \"\";\n\n    const startPage = Math.max(1, this.currentPage - this.offsetPage);\n    const endPage = Math.min(this.totalPages, this.currentPage + this.offsetPage);\n\n    if(this.currentPage == 1) this.disabledAnterior = \"disabled\";\n    if(this.currentPage == this.totalPages) this.disabledProxima = \"disabled\";\n\n    this.tagHtml = [];\n    for (let i = startPage; i <= endPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n    this.loading = false;\n    console.log(this.currentPage);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -487,12 +493,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 22
+                "line": 23
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<div *ngIf=\"loading; else paginationBlock\">\n    <div class=\"spinner-border\" role=\"status\"></div>\n  </div>\n  <ng-template #paginationBlock>\n    <div class=\"{{alignPaginatorCss}}\">\n      <nav aria-label=\"Page navigation example\">\n        <ul class=\"pagination\">\n          <li class=\"page-item {{disabledAnterior}}\">\n            <a class=\"page-link\" (click)=\"previousPage($event)\" href=\"#\">Anterior</a>\n          </li>\n          <li class=\"page-item {{item.active}}\" *ngFor=\"let item of tagHtml\">\n            <a class=\"page-link\" (click)=\"onPage(item.page,$event)\" href=\"#\">{{item.page}}</a>\n          </li>\n          <li class=\"page-item {{disabledProxima}}\">\n            <a class=\"page-link\" (click)=\"nextPage($event)\" href=\"#\">Próximo</a>\n          </li>\n        </ul>\n      </nav>\n    </div>\n  </ng-template>\n  \n  \n  "
+            "templateData": "<div *ngIf=\"loading; else paginationBlock\">\n    <div class=\"spinner-border\" role=\"status\"></div>\n  </div>\n  <ng-template #paginationBlock>\n    <div class=\"{{alignPaginatorCss}}\">\n      <nav aria-label=\"Page navigation example\">\n        <ul class=\"pagination\">\n          <li class=\"page-item {{disabledAnterior}}\">\n            <a class=\"page-link\" (click)=\"previousPage($event)\" href=\"javascript:void(0)\">Anterior</a>\n          </li>\n          <li class=\"page-item {{item.active}}\" *ngFor=\"let item of tagHtml\">\n            <a class=\"page-link\" (click)=\"onPage(item.page,$event)\" href=\"javascript:void(0)\">{{item.page}}</a>\n          </li>\n          <li class=\"page-item {{disabledProxima}}\">\n            <a class=\"page-link\" (click)=\"nextPage($event)\" href=\"javascript:void(0)\">Próximo</a>\n          </li>\n        </ul>\n      </nav>\n    </div>\n  </ng-template>\n  \n  \n  "
         }
     ],
     "modules": [
@@ -562,16 +568,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "projects/my-lib/src/lib/button/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Rows",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/my-lib/src/lib/paginacao/Paginacao.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -686,16 +682,6 @@
             ],
             "projects/my-lib/src/lib/paginacao/Paginacao.stories.ts": [
                 {
-                    "name": "Rows",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/my-lib/src/lib/paginacao/Paginacao.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
                     "name": "Template",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -723,7 +709,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 8,
+        "count": 9,
         "status": "low",
         "files": [
             {
@@ -784,16 +770,6 @@
                 "coveragePercent": 83,
                 "coverageCount": "5/6",
                 "status": "very-good"
-            },
-            {
-                "filePath": "projects/my-lib/src/lib/paginacao/Paginacao.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Rows",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
             },
             {
                 "filePath": "projects/my-lib/src/lib/paginacao/Paginacao.stories.ts",
