@@ -1,40 +1,14 @@
 <div class="pagination">
     <div class="pagination-pages">
         <ul>
-            <li *ngIf="showFirst" class="pagination-page" data-num="1"><a>1</a></li>
-            <li *ngIf="showFirst" class="pagination-ellipsis disabled"><a>...</a></li>
+            <li *ngIf="showFirst" class="pagination-page" (click)="setPage(1, $event)"><i>1</i></li>
+            <li *ngIf="showFirst" class="pagination-ellipsis disabled"><i>...</i></li>
 
-            <li *ngFor="let item of listItens" class="pagination-page {{item.active}}"><a>{{item.page}}</a></li>
+            <li *ngFor="let item of listItens" class="pagination-page {{item.active}}" (click)="setPage(item.page, $event)"><i>{{item.page}}</i></li>
 
-            <!--<li class="pagination-page J-paginationjs-page active" data-num="2"><a>2</a></li>
-            <li class="pagination-page J-paginationjs-page " data-num="3"><a>3</a></li>
-            <li class="pagination-page J-paginationjs-page " data-num="4"><a>4</a></li>
-            <li class="pagination-page J-paginationjs-page " data-num="5"><a>5</a></li>
-            <li class="pagination-ellipsis disabled"><a>...</a></li>
-            <li class="pagination-page paginationjs-last J-paginationjs-page " data-num="20"><a>20</a></li>
-            <li class="pagination-next J-paginationjs-next " data-num="2" title="Next page"><a>›</a></li>-->
+            <li *ngIf="showLast" class="pagination-ellipsis disabled"><i>...</i></li>
+            <li *ngIf="showLast" class="pagination-page pagination-last" (click)="setPage(totalPages, $event)"><i>{{totalPages}}</i></li>
+            
         </ul>
     </div>
 </div>
-
-<!--<div *ngIf="loading; else paginationBlock">
-    <div class="spinner-border" role="status"></div>
-  </div>
-  <ng-template #paginationBlock>
-    <div class="{{alignPaginatorCss}}">
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item {{disabledAnterior}}">
-            <a class="page-link" (click)="previousPage($event)" href="javascript:void(0)">Anterior</a>
-          </li>
-          <li class="page-item {{item.active}}" *ngFor="let item of tagHtml">
-            <a class="page-link" (click)="onPage(item.page,$event)" href="javascript:void(0)">{{item.page}}</a>
-          </li>
-          <li class="page-item {{disabledProxima}}">
-            <a class="page-link" (click)="nextPage($event)" href="javascript:void(0)">Próximo</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </ng-template>
--->

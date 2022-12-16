@@ -166,7 +166,7 @@
         },
         {
             "name": "PaginacaoComponent",
-            "id": "component-PaginacaoComponent-34e67601d947499956d0cf7b9f1d4f72d4c52472c1e114b4a4b78c3adebd4d9f074134a587a7c6d915840df2c7c5875ff13e9cae559e3e347df3b60c44e9390c",
+            "id": "component-PaginacaoComponent-012d7b30181767e3e7611507c8f911c2204957a9b6d252ecaf01e60ad8898649426becfcfe8efa414afe38942ed93ab8332eeb40363dfe493367719c47f82a61",
             "file": "projects/my-lib/src/lib/paginacao/paginacao.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -188,29 +188,30 @@
                     "defaultValue": "1",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 15,
                     "type": "number",
-                    "decorators": []
-                },
-                {
-                    "name": "callBack",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 19,
-                    "type": "Function",
                     "decorators": []
                 },
                 {
                     "name": "totalPages",
-                    "defaultValue": "80",
+                    "defaultValue": "35",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 13,
+                    "line": 12,
                     "type": "number",
                     "decorators": []
                 }
             ],
-            "outputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "Click",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter"
+                }
+            ],
             "propertiesClass": [
                 {
                     "name": "listItens",
@@ -220,49 +221,110 @@
                     "type": "Array<Item>",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 19
                 },
                 {
                     "name": "showFirst",
                     "defaultValue": "true",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "boolean",
+                    "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 21
+                    "line": 17
+                },
+                {
+                    "name": "showLast",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18
                 }
             ],
             "methodsClass": [
-                {
-                    "name": "clickEvent",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 28,
-                    "deprecated": false,
-                    "deprecationMessage": ""
-                },
                 {
                     "name": "loadPagination",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 36,
                     "deprecated": false,
                     "deprecationMessage": ""
                 },
                 {
                     "name": "ngOnChanges",
-                    "args": [],
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
                     "line": 24,
                     "deprecated": false,
-                    "deprecationMessage": ""
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "setPage",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ],
             "deprecated": false,
@@ -272,68 +334,19 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { isNgTemplate } from \"@angular/compiler\";\nimport { ChangeDetectorRef, Component, Input, SimpleChanges } from \"@angular/core\";\nimport { Item } from \"./item\";\n\n@Component({\n    selector: 'unifor-paginacao',\n    templateUrl: 'paginacao.component.html',\n    styleUrls: ['paginacao.component.css']\n})\nexport class PaginacaoComponent {\n\n    @Input()\n    totalPages:number = 80;\n\n    @Input()\n    atualPage:number = 1;\n\n    @Input()\n    callBack?:Function;\n\n    showFirst:boolean = true;\n    listItens:Array<Item> = [];\n\n    ngOnChanges() {\n        this.loadPagination();\n    }\n\n    clickEvent () {\n        this.loadPagination();\n    }\n\n    loadPagination () {\n\n        let firstPage:number = (this.atualPage - 2) <= 1 ? 1 : this.atualPage - 2;\n        let showTotalPages:number = 5 - (this.atualPage - firstPage) -1;\n        let lastPage:number =  (this.atualPage + showTotalPages);\n\n        if(this.atualPage > (this.totalPages - 3)) {\n            showTotalPages = 5 - (this.totalPages - this.atualPage) - 1\n            firstPage = this.atualPage - showTotalPages\n            lastPage = this.atualPage + (5 - showTotalPages) - 1\n        }\n\n        this.showFirst = this.atualPage > 3 ? true : false;\n\n        \n        for(let i = firstPage; i <= lastPage; i++){\n            let active = i == this.atualPage ? 'active' : '';\n            let item:Item = {\"page\":i,\"active\":active};\n            this.listItens.push(item);\n        }\n        console.log(this.showFirst)\n        console.log(this.totalPages)\n        console.log(this.atualPage)\n        console.log(this.listItens)\n        \n    }\n}\n/*import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';\n\n@Component({\n  selector: 'unifor-paginacao',\n  templateUrl: 'paginacao.component.html',\n  styleUrls: ['paginacao.component.css']\n})\nexport class PaginacaoComponent implements OnInit {\n\n  tagHtml: Array<object> = [];\n  alignPaginatorCss:string = '';\n  offsetPage: number = 2;\n  disabledAnterior: string = '';\n  disabledProxima: string = '';\n  html:Array<any> = [];\n  loading: boolean = false;\n\n  //@Output() currentPage: number = 1;\n  currentPage: number = 1;\n  @Output() paginaAtual  = new EventEmitter<number>();\n  @Input() align:string = \"center\";\n  @Input() rows: number | undefined;            // Quantidade maxima de registros exibido na tabela por pagina\n  @Input() totalPages:number = 0;       // Quantidade total de paginas\n\n  constructor() { }\n\n  ngOnInit() {}\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes['totalPages']) {\n      this.gerarTagDinamica();\n      this.alignPaginator();\n    }\n  }\n\n  alignPaginator() { this.alignPaginatorCss = `paginacao-custom-${this.align}`; }\n\n  gerarTagDinamica(): void {\n    let initPage:number = 1;\n    let lastPage:any = this.totalPages;\n\n    //Inicializa  com 5 botoes de paginacão se a quantidade de paginas for maior que 5.\n    if(this.totalPages > 5) lastPage =5;\n\n\n    //this.totalPages = Math.round(this.totalRecords/this.rows);\n    this.disabledAnterior = \"disabled\";\n    for (let i = initPage; i <= lastPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n  }\n\n  previousPage(event: any):void {\n    this.setPage(Math.max(1,this.currentPage -1),event);\n  }\n\n  onPage(paginaAtual: any,event: any):void{\n    this.setPage(paginaAtual,event);\n  }\n\n  nextPage(event: any):void {\n    this.setPage(Math.min(this.totalPages, this.currentPage + 1),event);\n  }\n\n  setPage(currentPage: number,event: { preventDefault: () => void; }){\n    event.preventDefault();\n    this.loading = true;\n    this.currentPage = currentPage;\n    this.paginaAtual.emit(this.currentPage);\n\n    this.disabledAnterior = \"\";\n    this.disabledProxima = \"\";\n\n    const startPage = Math.max(1, this.currentPage - this.offsetPage);\n    const endPage = Math.min(this.totalPages, this.currentPage + this.offsetPage);\n\n    if(this.currentPage == 1) this.disabledAnterior = \"disabled\";\n    if(this.currentPage == this.totalPages) this.disabledProxima = \"disabled\";\n\n    this.tagHtml = [];\n    for (let i = startPage; i <= endPage; i++) {\n      this.tagHtml.push({\"page\":i, \"active\":(i === this.currentPage) ? \"active\" : \"\"});\n    }\n    this.loading = false;\n    console.log(this.currentPage);\n  }\n}\n*/",
+            "sourceCode": "import { Component, EventEmitter, Input, Output, SimpleChanges } from \"@angular/core\";\nimport { Item } from \"./item\";\n\n@Component({\n    selector: 'unifor-paginacao',\n    templateUrl: 'paginacao.component.html',\n    styleUrls: ['paginacao.component.css']\n})\nexport class PaginacaoComponent {\n\n    @Input()\n    totalPages = 35;\n\n    @Input()\n    atualPage = 1;\n\n    showFirst = true;\n    showLast = true;\n    listItens:Array<Item> = [];\n\n    @Output()\n    Click = new EventEmitter<Event>();\n\n    ngOnChanges(changes: SimpleChanges) {\n        if (changes['atualPage']) {\n          this.loadPagination();\n        }\n      }\n\n    setPage (page:number, event:Event) {\n        this.Click.emit(event);\n        this.atualPage = page;\n        this.loadPagination();\n    }\n\n    loadPagination () {\n\n        let firstPage:number = (this.atualPage - 2) <= 1 ? 1 : this.atualPage - 2;\n        let showTotalPages:number = 5 - (this.atualPage - firstPage) -1;\n        let lastPage:number =  (this.atualPage + showTotalPages);\n\n        if(this.atualPage > (this.totalPages - 3)) {\n            showTotalPages = 5 - (this.totalPages - this.atualPage) - 1\n            firstPage = this.atualPage - showTotalPages\n            lastPage = this.atualPage + (5 - showTotalPages) - 1\n        }\n\n        this.showFirst = this.atualPage > 3 ? true : false;\n\n        this.listItens = [];\n        for(let i = firstPage; i <= lastPage; i++){\n            const active = i == this.atualPage ? 'active' : '';\n            const item:Item = {\"page\":i,\"active\":active};\n            this.listItens.push(item);\n        }\n\n        this.showLast = this.atualPage < (this.totalPages - 2) ? true : false;\n        \n    }\n}",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "ul {\n  margin: 15px 0;\n}\n\nli {\n  margin: 0;\n}\n\nul :first-child, ol :first-child {\n  margin-top: 0;\n}\n\n.pagination {\n    display: flex;\n    line-height: 1.6;\n    font-family: Marmelad,\"Lucida Grande\",Arial,\"Hiragino Sans GB\",Georgia,sans-serif;\n    font-size: 14px;\n    box-sizing: initial;\n}\n\n.pagination .pagination-pages {\n  float: left;\n  margin-left: 0;\n}\n\n.pagination .pagination-pages ul {\n  float: left;\n  margin: 0;\n  padding: 0;\n}\n\n.pagination .pagination-pages li {\n  float: left;\n  border: 1px solid #aaa;\n  border-right: none;\n  list-style: none;\n}\n\n.pagination .pagination-pages li:first-child, .pagination .pagination-pages li:first-child>a {\n  border-radius: 3px 0 0 3px;\n}\n\n.pagination .pagination-pages li>a {\n  min-width: 30px;\n  height: 28px;\n  line-height: 28px;\n  display: block;\n  background: #fff;\n  font-size: 14px;\n  color: #333;\n  text-decoration: none;\n  text-align: center;\n  cursor: pointer;\n}\n\n.pagination .pagination-pages li>a:hover {\n  background: #eee;\n}\n\n.pagination .pagination-pages li.disabled>a {\n  opacity: .3;\n  cursor: default;\n}\n\n.pagination .pagination-pages li.disabled>a:hover {\n  background: 0 0;\n}\n\n.paginations .pagination-pages li.active {\n  border: none;\n}\n\n.pagination .pagination-pages li.active>a {\n  line-height: 30px;\n  background: #aaa;\n  color: #fff;\n  cursor: default;\n}\n\n.pagination .pagination-pages li:last-child {\n  border-right: 1px solid #aaa;\n  border-radius: 0 3px 3px 0;\n}\n\n\n\n",
+                    "data": "ul {\n  margin: 15px 0;\n}\n\nli {\n  margin: 0;\n}\n\nul :first-child, ol :first-child {\n  margin-top: 0;\n}\n\n.pagination {\n    display: flex;\n    line-height: 1.6;\n    font-family: Marmelad,\"Lucida Grande\",Arial,\"Hiragino Sans GB\",Georgia,sans-serif;\n    font-size: 14px;\n    box-sizing: initial;\n}\n\n.pagination .pagination-pages {\n  float: left;\n  margin-left: 0;\n}\n\n.pagination .pagination-pages ul {\n  float: left;\n  margin: 0;\n  padding: 0;\n}\n\n.pagination .pagination-pages li {\n  float: left;\n  border: 1px solid #aaa;\n  border-right: none;\n  list-style: none;\n}\n\n.pagination .pagination-pages li:first-child, .pagination .pagination-pages li:first-child>a {\n  border-radius: 3px 0 0 3px;\n}\n\n.pagination .pagination-pages li>i {\n  min-width: 30px;\n  height: 28px;\n  line-height: 28px;\n  display: block;\n  background: #fff;\n  font-size: 14px;\n  color: #333;\n  text-decoration: none;\n  text-align: center;\n  cursor: pointer;\n}\n\n.pagination .pagination-pages li>i:hover {\n  background: #eee;\n}\n\n.pagination .pagination-pages li.disabled>i {\n  opacity: .3;\n  cursor: default;\n}\n\n.pagination .pagination-pages li.disabled>i:hover {\n  background: 0 0;\n}\n\n.paginations .pagination-pages li.active {\n  border: none;\n}\n\n.pagination .pagination-pages li.active>i {\n  line-height: 30px;\n  background: #aaa;\n  color: #fff;\n  cursor: default;\n}\n\n.pagination .pagination-pages li:last-child {\n  border-right: 1px solid #aaa;\n  border-radius: 0 3px 3px 0;\n}\n",
                     "styleUrl": "paginacao.component.css"
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"pagination\">\n    <div class=\"pagination-pages\">\n        <ul>\n            <li *ngIf=\"showFirst\" class=\"pagination-page\" data-num=\"1\"><a>1</a></li>\n            <li *ngIf=\"showFirst\" class=\"pagination-ellipsis disabled\"><a>...</a></li>\n\n            <li *ngFor=\"let item of listItens\" class=\"pagination-page {{item.active}}\"><a>{{item.page}}</a></li>\n\n            <!--<li class=\"pagination-page J-paginationjs-page active\" data-num=\"2\"><a>2</a></li>\n            <li class=\"pagination-page J-paginationjs-page \" data-num=\"3\"><a>3</a></li>\n            <li class=\"pagination-page J-paginationjs-page \" data-num=\"4\"><a>4</a></li>\n            <li class=\"pagination-page J-paginationjs-page \" data-num=\"5\"><a>5</a></li>\n            <li class=\"pagination-ellipsis disabled\"><a>...</a></li>\n            <li class=\"pagination-page paginationjs-last J-paginationjs-page \" data-num=\"20\"><a>20</a></li>\n            <li class=\"pagination-next J-paginationjs-next \" data-num=\"2\" title=\"Next page\"><a>›</a></li>-->\n        </ul>\n    </div>\n</div>\n\n<!--<div *ngIf=\"loading; else paginationBlock\">\n    <div class=\"spinner-border\" role=\"status\"></div>\n  </div>\n  <ng-template #paginationBlock>\n    <div class=\"{{alignPaginatorCss}}\">\n      <nav aria-label=\"Page navigation example\">\n        <ul class=\"pagination\">\n          <li class=\"page-item {{disabledAnterior}}\">\n            <a class=\"page-link\" (click)=\"previousPage($event)\" href=\"javascript:void(0)\">Anterior</a>\n          </li>\n          <li class=\"page-item {{item.active}}\" *ngFor=\"let item of tagHtml\">\n            <a class=\"page-link\" (click)=\"onPage(item.page,$event)\" href=\"javascript:void(0)\">{{item.page}}</a>\n          </li>\n          <li class=\"page-item {{disabledProxima}}\">\n            <a class=\"page-link\" (click)=\"nextPage($event)\" href=\"javascript:void(0)\">Próximo</a>\n          </li>\n        </ul>\n      </nav>\n    </div>\n  </ng-template>\n-->"
+            "templateData": "<div class=\"pagination\">\n    <div class=\"pagination-pages\">\n        <ul>\n            <li *ngIf=\"showFirst\" class=\"pagination-page\" (click)=\"setPage(1, $event)\"><i>1</i></li>\n            <li *ngIf=\"showFirst\" class=\"pagination-ellipsis disabled\"><i>...</i></li>\n\n            <li *ngFor=\"let item of listItens\" class=\"pagination-page {{item.active}}\" (click)=\"setPage(item.page, $event)\"><i>{{item.page}}</i></li>\n\n            <li *ngIf=\"showLast\" class=\"pagination-ellipsis disabled\"><i>...</i></li>\n            <li *ngIf=\"showLast\" class=\"pagination-page pagination-last\" (click)=\"setPage(totalPages, $event)\"><i>{{totalPages}}</i></li>\n            \n        </ul>\n    </div>\n</div>"
         }
     ],
-    "modules": [
-        {
-            "name": "PaginacaoModule",
-            "id": "module-PaginacaoModule-c34e35e83284ecd7c8184cbc7e7746c2c4db48926953ad7113552dad811ec67e8b6d0f2d884f803364a85dba9b3e16200c44c206cc79dd241bb1896a4de76ea4",
-            "description": "",
-            "deprecationMessage": "",
-            "deprecated": false,
-            "file": "projects/my-lib/src/lib/paginacao/module/paginacao.module.ts",
-            "methods": [],
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { NgModule } from '@angular/core';\nimport { PaginacaoComponent } from '../paginacao.component';\n@NgModule({\n  declarations: [ PaginacaoComponent ],\n  imports: [\n    CommonModule\n  ],\n  bootstrap: [ PaginacaoComponent ],\n  exports: [ PaginacaoComponent ]\n})\nexport class PaginacaoModule { }\n",
-            "children": [
-                {
-                    "type": "providers",
-                    "elements": []
-                },
-                {
-                    "type": "declarations",
-                    "elements": [
-                        {
-                            "name": "PaginacaoComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "imports",
-                    "elements": []
-                },
-                {
-                    "type": "exports",
-                    "elements": [
-                        {
-                            "name": "PaginacaoComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "bootstrap",
-                    "elements": [
-                        {
-                            "name": "PaginacaoComponent"
-                        }
-                    ]
-                },
-                {
-                    "type": "classes",
-                    "elements": []
-                }
-            ]
-        }
-    ],
+    "modules": [],
     "miscellaneous": {
         "variables": [
             {
@@ -589,7 +602,7 @@
                 "linktype": "component",
                 "name": "PaginacaoComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             }
         ]

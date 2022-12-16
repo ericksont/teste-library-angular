@@ -40,7 +40,7 @@ ul :first-child, ol :first-child {
   border-radius: 3px 0 0 3px;
 }
 
-.pagination .pagination-pages li>a {
+.pagination .pagination-pages li>i {
   min-width: 30px;
   height: 28px;
   line-height: 28px;
@@ -53,16 +53,16 @@ ul :first-child, ol :first-child {
   cursor: pointer;
 }
 
-.pagination .pagination-pages li>a:hover {
+.pagination .pagination-pages li>i:hover {
   background: #eee;
 }
 
-.pagination .pagination-pages li.disabled>a {
+.pagination .pagination-pages li.disabled>i {
   opacity: .3;
   cursor: default;
 }
 
-.pagination .pagination-pages li.disabled>a:hover {
+.pagination .pagination-pages li.disabled>i:hover {
   background: 0 0;
 }
 
@@ -70,7 +70,7 @@ ul :first-child, ol :first-child {
   border: none;
 }
 
-.pagination .pagination-pages li.active>a {
+.pagination .pagination-pages li.active>i {
   line-height: 30px;
   background: #aaa;
   color: #fff;
@@ -81,6 +81,3 @@ ul :first-child, ol :first-child {
   border-right: 1px solid #aaa;
   border-radius: 0 3px 3px 0;
 }
-
-
-

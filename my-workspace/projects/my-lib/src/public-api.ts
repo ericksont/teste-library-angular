@@ -3,4 +3,4 @@
  */
 
 export * from './lib/button/button.component';
-export * from './lib/paginacao/module/paginacao.module';
+export * from './lib/paginacao/paginacao.component';
