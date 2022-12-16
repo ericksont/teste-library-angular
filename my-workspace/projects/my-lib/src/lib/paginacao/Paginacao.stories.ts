@@ -21,5 +21,5 @@ export const TotalPages = Template.bind({});
 // More on args: https://storybook.js.org/docs/angular/writing-stories/args
 TotalPages.args = {
     totalPages: 320,
-    rows: 10,
+    atualPage: 10,
 };

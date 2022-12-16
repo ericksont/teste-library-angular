@@ -1,15 +1,18 @@
 <div class="pagination">
     <div class="pagination-pages">
         <ul>
-            <li class="pagination-prev disabled "><a>‹</a></li>
-            <li class="pagination-page J-paginationjs-page  active" data-num="1"><a>1</a></li>
-            <li class="pagination-page J-paginationjs-page " data-num="2"><a>2</a></li>
+            <li *ngIf="showFirst" class="pagination-page" data-num="1"><a>1</a></li>
+            <li *ngIf="showFirst" class="pagination-ellipsis disabled"><a>...</a></li>
+
+            <li *ngFor="let item of listItens" class="pagination-page {{item.active}}"><a>{{item.page}}</a></li>
+
+            <!--<li class="pagination-page J-paginationjs-page active" data-num="2"><a>2</a></li>
             <li class="pagination-page J-paginationjs-page " data-num="3"><a>3</a></li>
             <li class="pagination-page J-paginationjs-page " data-num="4"><a>4</a></li>
             <li class="pagination-page J-paginationjs-page " data-num="5"><a>5</a></li>
             <li class="pagination-ellipsis disabled"><a>...</a></li>
             <li class="pagination-page paginationjs-last J-paginationjs-page " data-num="20"><a>20</a></li>
-            <li class="pagination-next J-paginationjs-next " data-num="2" title="Next page"><a>›</a></li>
+            <li class="pagination-next J-paginationjs-next " data-num="2" title="Next page"><a>›</a></li>-->
         </ul>
     </div>
 </div>

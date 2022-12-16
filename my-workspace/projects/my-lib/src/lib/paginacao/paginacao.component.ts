@@ -1,4 +1,62 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { isNgTemplate } from "@angular/compiler";
+import { ChangeDetectorRef, Component, Input, SimpleChanges } from "@angular/core";
+import { Item } from "./item";
+
+@Component({
+    selector: 'unifor-paginacao',
+    templateUrl: 'paginacao.component.html',
+    styleUrls: ['paginacao.component.css']
+})
+export class PaginacaoComponent {
+
+    @Input()
+    totalPages:number = 80;
+
+    @Input()
+    atualPage:number = 1;
+
+    @Input()
+    callBack?:Function;
+
+    showFirst:boolean = true;
+    listItens:Array<Item> = [];
+
+    ngOnChanges() {
+        this.loadPagination();
+    }
+
+    clickEvent () {
+        this.loadPagination();
+    }
+
+    loadPagination () {
+
+        let firstPage:number = (this.atualPage - 2) <= 1 ? 1 : this.atualPage - 2;
+        let showTotalPages:number = 5 - (this.atualPage - firstPage) -1;
+        let lastPage:number =  (this.atualPage + showTotalPages);
+
+        if(this.atualPage > (this.totalPages - 3)) {
+            showTotalPages = 5 - (this.totalPages - this.atualPage) - 1
+            firstPage = this.atualPage - showTotalPages
+            lastPage = this.atualPage + (5 - showTotalPages) - 1
+        }
+
+        this.showFirst = this.atualPage > 3 ? true : false;
+
+        
+        for(let i = firstPage; i <= lastPage; i++){
+            let active = i == this.atualPage ? 'active' : '';
+            let item:Item = {"page":i,"active":active};
+            this.listItens.push(item);
+        }
+        console.log(this.showFirst)
+        console.log(this.totalPages)
+        console.log(this.atualPage)
+        console.log(this.listItens)
+        
+    }
+}
+/*import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'unifor-paginacao',
@@ -85,3 +143,4 @@ export class PaginacaoComponent implements OnInit {
     console.log(this.currentPage);
   }
 }
+*/
